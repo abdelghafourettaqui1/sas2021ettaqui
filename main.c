@@ -17,9 +17,7 @@ void space(){
     }
 }
 void miniSpace(){
-    for(int i = 0 ; i <5 ; i++){
-        printf("\n");
-    }
+        printf("\n\n\n\n\n");
 }
 void normal_print(int start,int condition){
     printf("_________________________________________________________________________________________\n");
@@ -38,7 +36,7 @@ void Ascending_Order(){
         int max = bank_account_amount[0];
         int max_index = 0;
         char save_id[30];
-           // this loop for finding max value
+        // this loop for finding max value
         for (int i = 0; i < copy_of_account_counter; i++) {
             if (bank_account_amount[i] > max) {
                 max = bank_account_amount[i];
@@ -121,35 +119,33 @@ void Descending_Order(){
 int searchById(){
     char search_id[30];
     int index_id;
- do {
-     printf("please enter the id of the client :");
-     scanf("%s", &search_id);
+    do {
+        printf("please enter the id of the client :");
+        scanf("%s", &search_id);
 
-     for (int i = 0; i < account_counter; i++) {
+        for (int i = 0; i < account_counter; i++) {
 
-         for (int j = 0; j < 30; j++) {
-             tmp[j] = bank_account_id[i][j];
-         }
-         if (strcmp(tmp, search_id) == 0) {
-             printf("your id exist\n");
-             flag = 1;
-             index_id = i;
-             break;
-         }
-     }
-     if (flag == 0) {
-         printf("This id doesn't exist\n");
-     }
- }while(flag==0);
- flag=0;
+            for (int j = 0; j < 30; j++) {
+                tmp[j] = bank_account_id[i][j];
+            }
+            if (strcmp(tmp, search_id) == 0) {
+                printf("your id exist\n");
+                flag = 1;
+                index_id = i;
+                break;
+            }
+        }
+        if (flag == 0) {
+            printf("This id doesn't exist\n");
+        }
+    }while(flag==0);
+
 
     return index_id;
 }
 void account_entry(){
-    printf("\t===============================");
-    printf("\n\t\tCreate an account ");
-    printf("\n\t===============================\n");
-    miniSpace();
+
+
     printf("please enter the id of the client.\n");
     scanf("%s",&bank_account_id[account_counter]);
     printf("please enter the name of the client.\n");
@@ -173,7 +169,7 @@ void print_main_menu(){
     printf("----------------------------------------------------------------------\n");
 }
 void display_menu(){
-     miniSpace();
+    miniSpace();
     printf(" 1-In Ascending Order\n");
     printf(" 2-By Descending Order\n");
     printf(" 3-By Ascending Order from an entered amount\n");
@@ -188,15 +184,23 @@ int main() {
         scanf("%d",&option);
         switch(option){
             case 1 :{
+
                 space();
+                printf("\t===============================");
+                printf("\n\t\tCreate an account ");
+                printf("\n\t===============================\n");
                 account_entry();
                 break;
             }
             case 2 :{
+                space();
+                printf("\t===============================");
+                printf("\n\t\tCreate an account ");
+                printf("\n\t===============================\n");
                 printf("Enter how many accounts you want to enter: ");
                 scanf("%d",&account_nb_to_enter);
-
                 for(int i=0; i < account_nb_to_enter; i++){
+                    miniSpace();
                     printf("Enter details of account number %d :\n",i+1);
                     account_entry();
                 }
@@ -227,7 +231,7 @@ int main() {
                             printf("please enter the amount you want to add :");
                             scanf("%d", &amount_plus_minus);
                             bank_account_amount[indexid] += amount_plus_minus;
-                            printf("the new amount is %d", bank_account_amount[indexid]);
+                            printf("the new amount is %.2lf", bank_account_amount[indexid]);
                             flag=0;
                         }
                         break;
@@ -236,7 +240,7 @@ int main() {
                 break;}
             case 4 :
 
-                {
+            {
                 display_menu();
                 printf("\n Choose your option : ");
                 scanf("%d",&option);
@@ -247,7 +251,7 @@ int main() {
                         break;
                     }
                     case 2 :{
-                       // Descending Order{
+                        // Descending Order{
                         Descending_Order();
                         normal_print(0,account_counter);
                         break;
@@ -307,6 +311,7 @@ int main() {
                     case 5 : {
                         searchById();
                         normal_print(indexid,indexid+1);
+                        flag=0;
                         break;
                     }
                 }
