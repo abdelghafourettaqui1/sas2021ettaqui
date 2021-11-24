@@ -17,7 +17,7 @@ void space(){
     }
 }
 void miniSpace(){
-        printf("\n\n\n\n\n");
+    printf("\n\n\n\n\n");
 }
 void normal_print(int start,int condition){
     printf("_________________________________________________________________________________________\n");
@@ -33,16 +33,17 @@ void Ascending_Order(){
     while (copy_of_account_counter > 0) {
         char save_name[30];
         char save_last_name[30];
+        char save_id[30];
         int max = bank_account_amount[0];
         int max_index = 0;
-        char save_id[30];
-        // this loop for finding max value
+      
+        // this loop for finding max value and storing max value 
         for (int i = 0; i < copy_of_account_counter; i++) {
             if (bank_account_amount[i] > max) {
                 max = bank_account_amount[i];
                 max_index = i;
             }
-            // this loop for storing max value
+            // this loop for storing the information having the same index of max  
             for (int j = 0; j < 30; j++) {
                 save_name[j] = bank_account_name[max_index][j];
                 save_id[j] = bank_account_id[max_index][j];
@@ -80,7 +81,7 @@ void Descending_Order(){
         int min = bank_account_amount[0];
         int min_index = 0;
         char save_id[30];
-        //STORING MAX VALUE
+        // this loop for finding max value and storing max value 
         for (int i = 0; i < copy_of_account_counter; i++) {
             if (bank_account_amount[i] < min) {
                 min = bank_account_amount[i];
@@ -93,7 +94,7 @@ void Descending_Order(){
             }
 
         }
-        //RECULER LES VALEUR DU TABLEAU A PARTIR DE INDEX-MAX
+        // this loop for storing the information having the same index of max  
         for (int i = min_index; i < copy_of_account_counter; i++) {
 
             bank_account_amount[i] = bank_account_amount[i + 1];
@@ -103,7 +104,7 @@ void Descending_Order(){
                 bank_account_last_name[i][j] = bank_account_last_name[i + 1][j];
             }
         }
-        //PUT MAX VALUE IN THE LAST INDEX
+        //storing the max value in the last case of the array
         bank_account_amount[copy_of_account_counter - 1] = min;
 
         for (int j = 0; j < 30; j++) {
@@ -156,7 +157,6 @@ void account_entry(){
     scanf("%lf",&bank_account_amount[account_counter]);
     account_counter++;
 }
-
 void print_main_menu(){
     miniSpace();
     printf("\n\n---------------------------------MAIN MENU-----------------------------\n");
