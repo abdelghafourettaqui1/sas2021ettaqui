@@ -324,10 +324,8 @@ int main() {
                     percentage_to_add = (bank_account_amount[i] * 1.3) / 100;
                     bank_account_amount[i] += percentage_to_add;
                 }
-                printf(" ____________________________________________________________________________\n");
-                for(int i=0;i<3;i++){printf("|\t%10s|\t%10s\t|\t%10s\t|\t%11.2f\t|\n", bank_account_last_name[i],bank_account_name[i], bank_account_id[i], bank_account_amount[i]);
-                }
-                printf("|____________________________________________________________________________|\n\n");
+                normal_print(0,3);
+               
                 break;
             }
         }
